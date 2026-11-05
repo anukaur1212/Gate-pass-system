@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* :root{ */
+  /* Primary colors */
+  /* --primary:#14532d;
+  --primary-dark:#052e16;
+  --primary-light:#166534; */
+
+  /* Bg colors */
+  /* --bg-main:#f0fdf4;
+  --bg-card:#ffffff;
+  --bg-hover:#dcfce7; */
+
+  /* Text colors */
+  /* --text-primary:#14532d;
+  --text-secondary:#4b5563;
+  --text-muted:#6b7280;
+  --text-gray:#272b30; */
+
+  /* Border colors */
+  /* --border:#bbf7d0;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #d97706;
+} */
+
+:root {
+  --primary: #144667;
+  --primary-dark: #0F3852;
+  --primary-light: #DCECF4;
+  --secondary: #1E648C;
+  --accent: #3C86AC;
+
+  --bg-main: #F1F6F9;
+  --bg-card: #FFFFFF;
+  --bg-primary: #F3F7FA;
+
+  --border: #D9E5EC;
+
+  --text-primary: #17384D;
+  --text-secondary: #526777;
+  --text-muted: #8A9BA8;
+
+  --success: #15803D;
+  --warning: #D97706;
+  --danger: #DC2626;
+}
+
+@theme inline{
+
+    /* Primary colors */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+
+   /* Bg colors */
+  --color-bg-main: var(--bg-main);
+  --color-bg-card: var(--bg-card);
+  --color-bg-hover: var(--bg-hover);
+ 
+  /* Text colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+    /* Border colors */
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+}
+
+/* DASHBOARD GATE PASS SYSTEM CSS */
+.navbutton{
+  text-decoration: none;
+  color: var(--primary-light);
+  padding: 10px 18px;
+  border-radius: 5px;
+  width: 240px;
+  display: inline-block;
+  text-align: left;
+  background-color: transparent;
+}
+
+.navbutton:hover{
+ color: var(--primary-light); 
+  transform: translateX(4px);
+  transition: all 300ms ease;
+   background-color: rgb(255 255 255 / 10%);
+}
+
+.navbutton.active{
+  background-color: var(--primary-dark);
+}
+
+
+/* DASHBOARD GATE PASS SYSTEM CSS */
+.navIcon{
+  text-decoration: none;
+  color: #F3F4F6;
+  padding: 10px 18px;
+  border-radius: 20px;
+  width: 60px;
+  display: inline-block;
+  text-align: left;
+  background-color: transparent;
+}
+
+.navIcon:hover{
+ color: var(--bg-card); 
+  transform: translateX(4px);
+  transition: all 300ms ease;
+   background-color: rgb(255 255 255 / 10%);
+}
+
+.navIcon.active{
+  background-color: var(--primary-light);
+}
+
+/* dashboard cards */
+.rgp-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #dce9dd;
+  border-radius: 1rem;
+  background: white;
+  padding: 1.5rem;
+  color: #166534;
+  text-decoration: none;
+
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+  transition: all 300ms ease;
+}
+
+.rgp-card:hover {
+  transform: translateY(-8px);
+  border-color: #56805d;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 0.1);
+  text-decoration: none;
+}
+
+.rgp-card h2,
+.rgp-card p,
+.rgp-card span {
+  color: inherit;
+  text-decoration: none;
+}
+ 
+@media (max-width: 1023px) {
+  .sidebar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 256px !important;
+    height: 100dvh;
+    z-index: 200;
+    background: linear-gradient(to bottom, var(--primary-dark), var(--primary-light));
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    visibility: visible;
+    overflow-y: auto;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar.mobile-close {
+    transform: translateX(-100%);
+  }
+
+  .sidebar .sidebar-text {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+

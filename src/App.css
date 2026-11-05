@@ -1,0 +1,206 @@
+@reference "./index.css";
+
+
+
+/*  ******************************************************************* */
+/* *************************DASHBOARD SIDEBAR PAGE CSS***************************** */
+
+
+
+.sidebar {
+    @apply fixed left-0 top-0 z-50 flex h-screen w-60 flex-col justify-between overflow-y-auto border-r border-bg-card/10 bg-gradient-to-b from-primary to-primary-dark shadow-2xl transition-transform duration-500 ease-in-out sm:w-64;
+}
+
+.sidebar-logo {
+    @apply flex items-center gap-3 border-b border-bg-card/10 px-4 py-5;
+}
+
+.logo-icon {
+    @apply rounded-xl bg-[var(--accent)]/20 p-2.5 text-[var(--text-muted)];
+}
+
+.sidebar-logo h4 {
+    @apply mb-0 text-xl font-bold tracking-wide text-white;
+}
+
+.sidebar-logo p {
+    @apply text-[10px] font-semibold tracking-[2px] text-[var(--text-muted)];
+}
+
+.sidebar-menu {
+    @apply mt-3 flex w-full flex-col gap-2 px-1.5 text-sm font-medium uppercase;
+}
+
+.sidebar-menu-icons {
+    @apply float-left mr-3;
+}
+
+.sidebar-bottom {
+    @apply p-3;
+}
+
+.user-profile {
+    @apply mb-3 flex items-center gap-3 rounded-xl border border-bg-card/10 bg-bg-card/5 p-3;
+}
+
+.avatar {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] font-bold cursor-pointer text-border;
+}
+
+.user-profile p {
+    @apply truncate text-sm font-semibold text-bg-card;
+}
+
+.user-profile small {
+    @apply text-border text-xs;
+}
+
+.logout {
+    @apply flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-bg-card transition-all duration-300 hover:scale-102 hover:bg-gray-100 hover:text-[var(--primary)] cursor-pointer;
+}
+
+
+/*  ******************************************************************* */
+/* *************************DASHBOARD HEADER PAGE CSS***************************** */
+
+.header {
+    @apply lg:fixed lg:top-0 lg:left-64 lg:right-0 lg:z-[100] p-5 border-b border-[#144667]/10 bg-gradient-to-r from-white via-[#DCECF4] to-[#F1F6F9] md:px-6 md:py-4 shadow-sm backdrop-blur-xl transition-all duration-300;
+}
+
+.header-left {
+    @apply flex items-center justify-between gap-4;
+}
+
+.welcome {
+    @apply hidden lg:flex lg:flex-col animate-[fadeIn_0.6s_ease-out];
+}
+
+.welcome h1 {
+    @apply text-xl md:text-2xl font-extrabold tracking-tight text-[#0F3852] font-serif;
+}
+
+.welcome span {
+    @apply ml-2 inline-block;
+}
+
+.welcome p {
+    @apply mt-1 text-sm text-[#144667]/80 hidden lg:flex;
+}
+
+.header-right {
+    @apply flex items-center gap-3;
+}
+
+.date {
+    @apply hidden items-center gap-3 rounded-2xl border border-[#144667]/10 bg-white/80 px-4 py-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#144667]/30 hover:shadow-md sm:flex;
+}
+
+.calendar {
+    @apply rounded-xl bg-[#DCECF4] p-2 text-[#144667];
+}
+
+.date-style {
+    @apply text-sm font-semibold text-[#17384D];
+}
+
+.notification-btn {
+    @apply relative rounded-xl border border-[#144667]/10 bg-white p-3 text-[#144667] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#DCECF4] hover:text-[#0F3852] hover:shadow-lg active:scale-95 hidden lg:flex;
+}
+
+.bell-icon {
+    @apply transition-transform duration-300 group-hover:rotate-12;
+}
+
+.notification-btn span {
+    @apply absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500;
+}
+
+.profile {
+    @apply hidden items-center gap-3 border-l border-[#144667]/15 pl-4 transition-all duration-300 lg:flex;
+}
+
+.profile-icon {
+    @apply cursor-pointer rounded-full bg-gradient-to-br from-[#144667] to-[#3C86AC] p-[3px] shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+.user-icon {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-[#0F3852] text-white;
+}
+
+.user-heading {
+    @apply text-sm font-bold flex items-center gap-1.5 text-[#144667];
+}
+
+
+/*  ******************************************************************* */
+/* *************************DASHBOARD PRODUCT FORM CSS***************************** */
+
+.inputClass {
+    @apply w-full rounded-xl border border-gray-200 bg-[#f3f7fa] px-3 py-3 text-sm text-gray-800 outline-none transition-all duration-200 placeholder:text-gray-400 hover:border-[#2479a8] focus:border-[#144667] focus:bg-white focus:ring-4 focus:ring-[#144667]/10
+}
+
+.product-form {
+    @apply min-h-screen bg-[#f4f7f3] p-4 sm:p-6 lg:p-8 absolute lg:left-65 lg:top-20 lg:w-315;
+}
+
+.product-main-card {
+    @apply mx-auto max-w-6xl overflow-hidden rounded-2xl min-h-screen border border-gray-200/80 bg-white shadow-xl shadow-gray-900/5;
+}
+
+.product-header {
+    @apply relative overflow-hidden bg-gradient-to-r from-[#103852] via-[#144667] to-[#2479a8] p-4 lg:px-6 lg:py-4 sm:px-8;
+}
+
+.circle-one {
+    @apply absolute -right-10 -top-16 h-48 w-48 rounded-full border border-white/60;
+}
+
+.circle-two {
+    @apply absolute -right-2 -top-8 h-32 w-32 rounded-full border border-white/60;
+}
+
+.header-main {
+    @apply relative flex items-center gap-4;
+}
+
+.header-logo {
+    @apply flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/20 bg-white/15 text-white shadow-lg backdrop-blur-sm;
+}
+
+.header-main h1 {
+    @apply text-2xl font-bold tracking-tight text-white sm:text-3xl;
+}
+
+.header-main p {
+    @apply mt-1 text-sm text-blue-50/80;
+}
+
+.header-info {
+    @apply relative mt-4 lg:flex items-center gap-2 text-xs font-medium text-blue-50/80 hidden;
+}
+
+.product-form-footer {
+    @apply flex flex-col-reverse gap-3 border-t border-gray-100 pt-6 sm:flex-row sm:justify-end;
+}
+
+.reset-btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-600 transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 active:scale-[0.98];
+}
+
+.submit-btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#dceaf2] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--primary-dark)] hover:shadow-xl active:translate-y-0 active:scale-[0.98];
+}
+
+.submit-icon {
+    @apply transition-transform group-hover:translate-x-1;
+}
+
+
+/* ************************* EMPLOYEE'S PERSONAL DETAILS FORM ***************************** */
+.Form-label {
+    @apply ps-3 mb-2 block text-sm font-semibold text-[#144667];
+}
+
+.Input-Field {
+    @apply w-full rounded-xl border border-gray-200 bg-gray-50/70 px-3 py-3 text-sm text-gray-800 outline-none transition-all duration-200 placeholder:text-gray-400 hover:border-gray-300 focus:border-none focus:bg-white focus:ring-4 focus:ring-[#144667]/10 bg-gradient-to-b from-white to-[#f3f7fa]
+}
