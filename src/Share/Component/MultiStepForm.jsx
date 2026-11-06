@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useState } from "react";
-import { User, BriefcaseBusiness, Check, DollarSign, BanknoteCheck, RotateCcw, ChevronRight, Save, CheckCheckIcon, CheckCheck, ChevronLeft } from "lucide-react";
+import { User, BriefcaseBusiness, Check, DollarSign, BanknoteCheck, RotateCcw, ChevronRight, Save, CheckCheckIcon, CheckCheck, ChevronLeft, SaveIcon, Paperclip } from "lucide-react";
 import EmployeeOfficialDetails from '../Employee/Form/EmployeeOfficialDetails';
 import EmployeePersonalDetails from '../Employee/Form/EmployeePersonalDetails';
 import EmployeeSalaryDetails from '../Employee/Form/EmployeeSalaryDetails';
 import EmployeeBankDetails from '../Employee/Form/EmployeeBankDetails';
+import Document from '../Employee/Form/Document';
 
 
 const MultiStepForm = () => {
@@ -56,7 +57,10 @@ const MultiStepForm = () => {
       }]
       : []),
 
-    { title: "Review and Submit", icon: Check },
+    {
+      title: "Document", icon:Paperclip,
+      components: <Document/> 
+    }
   ];
 
 
@@ -67,24 +71,19 @@ const MultiStepForm = () => {
       <div className=" bg-[#f3f7fa] p-3 sm:p-4 rounded-xl">
 
         {/* Header */}
-        <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p className="mt-1 text-sm text-gray-500">
-              Complete the following steps to register a new employee.
-            </p>
-          </div>
+        <div className=" flex flex-wrap items-center justify-between gap-4">
         </div>
 
         {/* Horizontal Timeline */}
         <div className="relative mb-3 px-2 sm:px-5">
 
           {/* Unlinked Clickable Stepper */}
-
-          <div className="grid grid-cols-5 gap-3">
+          <div className="grid grid-cols-5 gap-3 place-items-center
+         py-3">
 
             {steps.map((step, index) => {
               const Icon = step.icon;
-              const completed = index < currentStep;
+              // const completed = index < currentStep;
               const active = index === currentStep;
 
               return (
@@ -93,39 +92,40 @@ const MultiStepForm = () => {
                   type="button"
                   key={step.title}
                   onClick={() => setCurrentStep(index)}
-                  className="flex flex-col items-center cursor-pointer">
-
-                  {/* Circle */}
-                  <div
-                    className={`flex h-14 w-14 items-center justify-center rounded-full
-                       border-[3px] transition-all duration-300
-                  
-                   ${completed
-                        ? "border-[#144667] bg-[#144667] text-white shadow-[0_0_0_6px_#dceaf2]"
-                        : active
-                          ? "border-[#144667] bg-[#144667] text-white shadow-[0_0_0_6px_#dceaf2]"
-                          : "border-gray-200 bg-white text-gray-400"
-                      }
-                    `}
-                  >
-                    {completed ? (
-                      <CheckCheck size={24} strokeWidth={3} />
-                    ) : (
-                      <Icon size={23} />
-                    )}
-                  </div>
+                  className="group flex cursor-pointer">
 
                   {/* Label */}
                   <span
-                    className={`mt-4 rounded-full px-3 py-2 text-center text-xs font-bold sm:text-sm
+                    className={`mt-4 rounded-full px-3 py-2
+                       text-center text-xs font-bold sm:text-sm
                   ${active
-                        ? "bg-[#dceaf2] text-[var(--primary)]"
-                        : completed
-                          ? "text-[var(--primary)]"
-                          : "bg-gray-100 text-gray-400"
+                        ? "bg-[var(--primary)] text-[var(--primary-light)]"
+                        : "bg-[#dceaf2] text-[var(--primary)]"
                       }`}
                   >
-                    {step.title}
+
+                    <div className='flex items-center gap-2 relative h-10 w-40'>
+
+                      <div
+                        className={`absolute left-0 flex h-10 w-10 items-center justify-center rounded-full
+                        ? "border-[#144667] text-white shadow-[0_0_0_6px_#dceaf2]"
+                        border-[3px] transition-all duration-300
+                  
+                        ${active
+                            ? " bg-[var(--primary-light)] text-white"
+                            : "border-gray-200 bg-white text-gray-400 "
+                          }`}
+                          >
+
+                        <Icon size={23}
+                          className='text-[var(--primary)]' />
+
+                      </div>
+                      <div className='ms-12'>
+                        {step.title}
+                      </div>
+                    </div>
+
                   </span>
 
                 </button>
@@ -142,20 +142,10 @@ const MultiStepForm = () => {
 
           <div className="product-form-footer">
             <button
-              type="button"
-              onClick={() => setCurrentStep(prev => Math.max(prev - 1, 0))}
-              className="reset-btn">
-              <ChevronLeft size={17} />
-              Back
-            </button>
-
-            <button
               type="submit"
-              onClick={() => setCurrentStep(prev => Math.min(prev + 1, steps.length - 1))
-              }
               className="submit-btn">
-              Proceed
-              <ChevronRight
+              Save
+              <SaveIcon
                 size={17}
                 className="submit-icon"
               />

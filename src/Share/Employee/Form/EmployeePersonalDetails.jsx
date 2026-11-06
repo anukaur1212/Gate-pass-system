@@ -20,24 +20,30 @@ const EmployeePersonalDetails = () => {
         address: ""
     })
 
+    const employee = 'src/assets/img/avatar-5.jpg'
+
     return (
         <>
             <section className='max-h-auto'>
-                <div className="mb-4 mt-4 flex items-center gap-3 max-h-auto">
 
-                    <div className="flex h-10 w-10 items-center justify-center 
+                <div className='w-full flex gap-4 bg-[var(--primary-light)] rounded-2xl'>
+                    <img src={employee} alt="img" className='h-30 rounded-2xl' />
+                    <div className="mb-4 mt-4 flex items-center gap-3 max-h-auto">
+
+                        <div className="flex h-10 w-10 items-center justify-center 
                       rounded-xl bg-[#144667]/10 text-[#144667]">
-                        <UserRound size={20} />
-                    </div>
+                            <UserRound size={20} />
+                        </div>
 
-                    <div>
-                        <h2 className="font-bold text-gray-800">
-                            Personal Details
-                        </h2>
+                        <div>
+                            <h2 className="font-bold text-gray-800">
+                                Personal Details
+                            </h2>
+                        </div>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 md:grid-cols-2 mb-3">
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-2 mb-3 mt-7">
 
                     {/* Full Name */}
                     <div>
@@ -250,10 +256,8 @@ const EmployeePersonalDetails = () => {
                         />
                     </div>
 
-
-
-
                 </div>
+
             </section>
         </>
     )

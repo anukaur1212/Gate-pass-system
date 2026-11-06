@@ -5,19 +5,8 @@ import CustomDropdown from '../custom/CustomDropdown';
 
 const EmployeeSalaryDetails = ({ jobType,salary,setSalary,stipends,setStipends }) => {
 
-    const allowanceOptions = [
-        { value: "basic", label: "Basic" },
-        { value: "mobile", label: "Mobile Allowance" },
-        { value: "internet", label: "Internet Allowance" },
-        { value: "others", label: "Others" },
-    ];
 
-    // const [salary, setSalary] = useState("");
-    const [allowance, setAllowance] = useState("");
-    // const [stipends, setStipends] = useState("");
     const [incentives, setIncentives] = useState("");
-    const [otherAllowance, setOtherAllowance] = useState("");
-
 
     const labelClass = "ps-3 mb-2 block  text-sm font-semibold text-[#144667]";
 
@@ -41,9 +30,9 @@ const EmployeeSalaryDetails = ({ jobType,salary,setSalary,stipends,setStipends }
                     {/* Full Time / Part Time */}
                     {["Full Time", "Part Time"].includes(jobType) && (
                         <>
-                            {/* Salary Amount */}
+                            {/* Basic Amount */}
                             <div>
-                                <label className={labelClass}>Salary Amount *</label>
+                                <label className={labelClass}> Basic *</label>
                                 <input
                                     type="number"
                                     min="0"
@@ -55,20 +44,40 @@ const EmployeeSalaryDetails = ({ jobType,salary,setSalary,stipends,setStipends }
                                 />
                             </div>
 
-                            {/* Allowance Dropdown */}
+                               {/* mobile allowance */}
                             <div>
-                                <label className={labelClass}>Allowance Type</label>
-                                <select
-                                    value={allowance}
-                                    onChange={(e) => setAllowance(e.target.value)}
+                                <label className={labelClass}>Salary Amount *</label>
+                                <input
+                                    type="number"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="Mobile Allowance"
                                     className="Input-Field"
-                                >
-                                    <option value="">Select allowance</option>
-                                    <option value="Basic">Basic</option>
-                                    <option value="Mobile Allowance">Mobile Allowance</option>
-                                    <option value="Internet Allowance">Internet Allowance</option>
-                                    <option value="Others">Others</option>
-                                </select>
+                                />
+                            </div>
+
+                                 {/* Internet allowance */}
+                            <div>
+                                <label className={labelClass}>Internet Allowance *</label>
+                                <input
+                                    type="number"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="Internet Allowance"
+                                    className="Input-Field"
+                                />
+                            </div>
+
+                                 {/* others */}
+                            <div>
+                                <label className={labelClass}>others *</label>
+                                <input
+                                    type="number"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="Others"
+                                    className="Input-Field"
+                                />
                             </div>
                         </>
                     )}

@@ -1,9 +1,12 @@
 import { Bell, CalendarDays, Menu, ShieldCheck, UserRound, X } from "lucide-react";
 import "/src/App.css";
 import { NavLink } from "react-router-dom";
+import { useContext,React } from "react";
+import { Admin } from "../../main";
 
 const Header = ({ menuOpen, setMenuOpen }) => {
 
+const {AdminName,png} = useContext(Admin);
 
   return (
     <div className="header">
@@ -83,16 +86,13 @@ const Header = ({ menuOpen, setMenuOpen }) => {
           {/* Profile */}
           <div className="profile">
 
-            <div className="profile-icon">
-
-              <div className="user-icon">
-                <UserRound size={22} />
-              </div>
+            <div className="cursor-pointer hover:scale-110 transition">
+                <img src={png} alt="avatar" className="rounded-full h-10 w-10" />
             </div>
 
             <div>
               <p className="user-heading">
-                Admin
+              {AdminName}
               </p>
             </div>
           </div>

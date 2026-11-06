@@ -27,7 +27,7 @@ const EmployeeHeader = () => {
                      px-5 py-3 text-sm font-semibold text-white shadow-sm transition
                       hover:bg-[var(--text-muted)] cursor-pointer">
           <Plus size={18} />
-          Create Entry
+          Add Employee
         </button>
 
       </div>

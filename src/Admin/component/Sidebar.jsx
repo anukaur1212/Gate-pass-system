@@ -2,10 +2,12 @@ import { NavLink } from "react-router-dom";
 import { LogOut, ShieldCheck } from "lucide-react";
 import { sidebar } from "../../Share/Constant/NavbarList";
 import "/src/App.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Admin } from "../../main";
 
 const Sidebar = ({ menuOpen, setMenuOpen,setShowLogout }) => {
 
+ const {AdminName,png,setAdminName} = useContext(Admin);
 
   return (
     <>
@@ -47,11 +49,13 @@ const Sidebar = ({ menuOpen, setMenuOpen,setShowLogout }) => {
         {/* Bottom Section */}
         <div className="sidebar-bottom">
           <div className="user-profile">
-            <div className="avatar">A</div>
+            <div className="cursor-pointer hover:scale-110 transition">
+              <img src={png} alt="avatar" className="rounded-full h-10 w-10"/>
+            </div>
 
             <div className="sidebar-text">
               <p>Administrator</p>
-              <small>System Admin</small>
+              <small>{AdminName}</small>
             </div>
           </div>
 

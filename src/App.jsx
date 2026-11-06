@@ -10,7 +10,6 @@ import Layout from './Layout';
 import Employee from './Admin/pages/Employee';
 import EmployeeForm from './Share/Employee/Form/EmployeeForm';
 import Login from './Admin/pages/Login';
-// import EmployeeOfficalForm from './Share/Employee/EmployeeOfficalForm';
 
 
 
@@ -20,8 +19,7 @@ const App = () => {
 
       <Routes>
 
-        <Route path='/login' element={<Login/>}/>
-
+        <Route path='/login' element={<Login />} />
 
         <Route path="/" element={<Layout />}>
           <Route index element={<DashboardPage />} />
@@ -31,8 +29,7 @@ const App = () => {
           <Route path='/visitor' element={<VisitorEntry />} />
           <Route path='/visitorform' element={<VisitorForm />} />
           <Route path='/employee' element={<Employee />} />
-          <Route path='/employeeform' element={<EmployeeForm/>} />
-          {/* <Route path='/officialform' element={<EmployeeOfficalForm/>}/> */}
+          <Route path='/employeeform' element={<EmployeeForm />} />
         </Route>
 
       </Routes>
