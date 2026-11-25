@@ -1,5 +1,6 @@
 export const dateOptions = [
   { label: "Date", value: "all" },
+  { label: "Today", value: "today" },
   { label: "Yesterday", value: "yesterday" },
   { label: "Last 3 Days", value: "last3" },
   { label: "Last 7 Days", value: "last7" },
@@ -10,6 +11,6 @@ export const dateOptions = [
 
 export const typeOptions = [
   { label: "All Types", value: "all" },
-  { label: "RGP", value: "RGP" },
-  { label: "NRGP", value: "NRGP" },
+  { label: "RGP", value: "rgp" },
+  { label: "NRGP", value: "nrgp" },
 ];

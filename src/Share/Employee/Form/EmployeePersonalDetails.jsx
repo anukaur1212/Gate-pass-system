@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { BoxesLinkedIcon, Check, ChevronDown, ShieldCheck, UserRound } from 'lucide-react'
 import { stateOptions } from '../../Constant/EmployeeData';
+import { Admin } from '../../../main';
 
 
 const EmployeePersonalDetails = () => {
@@ -19,15 +20,15 @@ const EmployeePersonalDetails = () => {
         image: null,
         address: ""
     })
-
-    const employee = 'src/assets/img/avatar-5.jpg'
+   
+   const {png} = useContext(Admin);
 
     return (
         <>
             <section className='max-h-auto'>
 
                 <div className='w-full flex gap-4 bg-[var(--primary-light)] rounded-2xl'>
-                    <img src={employee} alt="img" className='h-30 rounded-2xl' />
+                    <img src={png} alt="img" className='h-30 rounded-2xl' />
                     <div className="mb-4 mt-4 flex items-center gap-3 max-h-auto">
 
                         <div className="flex h-10 w-10 items-center justify-center 
@@ -130,10 +131,10 @@ const EmployeePersonalDetails = () => {
 
                             {/* Male */}
                             <label className="flex items-center justify-between rounded-xl border border-gray-200
-        bg-white px-4 py-3 cursor-pointer transition-all duration-200
-        hover:border-[#2479a8] hover:bg-[#f3f7fa]
-        has-[:checked]:border-[#144667] has-[:checked]:bg-[#e2edf4]
-        has-[:checked]:shadow-sm">
+                            bg-white px-4 py-3 cursor-pointer transition-all duration-200
+                            hover:border-[#2479a8] hover:bg-[#f3f7fa]
+                            has-[:checked]:border-[#144667] has-[:checked]:bg-[#e2edf4]
+                            has-[:checked]:shadow-sm">
 
                                 <span className="text-sm font-semibold text-[#144667]">
                                     Male
@@ -150,10 +151,10 @@ const EmployeePersonalDetails = () => {
 
                             {/* Female */}
                             <label className="flex items-center justify-between rounded-xl border border-gray-200
-        bg-white px-4 py-3 cursor-pointer transition-all duration-200
-        hover:border-[#2479a8] hover:bg-[#f3f7fa]
-        has-[:checked]:border-[#144667] has-[:checked]:bg-[#e2edf4]
-        has-[:checked]:shadow-sm">
+                            bg-white px-4 py-3 cursor-pointer transition-all duration-200
+                            hover:border-[#2479a8] hover:bg-[#f3f7fa]
+                            has-[:checked]:border-[#144667] has-[:checked]:bg-[#e2edf4]
+                            has-[:checked]:shadow-sm">
 
                                 <span className="text-sm font-semibold text-[#144667]">
                                     Female
@@ -182,7 +183,7 @@ const EmployeePersonalDetails = () => {
                             <div className="relative mt-2 group">
 
                                 <div className="absolute left-4 top-1/2 -translate-y-1/2
-        text-gray-400 group-focus-within:text-[#144667]">
+                            text-gray-400 group-focus-within:text-[#144667]">
                                     <BoxesLinkedIcon size={18} />
                                 </div>
 
@@ -192,13 +193,13 @@ const EmployeePersonalDetails = () => {
                                     onChange={(e) => setLinkedin(e.target.value)}
                                     placeholder="https://www.linkedin.com/in/username"
                                     className="w-full rounded-xl border border-gray-200
-            bg-white py-3 pl-11 pr-4 text-sm text-gray-700
-            shadow-sm outline-none transition-all
-            bg-gradient-to-b from-white to-[#f3f7fa]
-            placeholder:text-gray-400
-            hover:border-gray-300
-            focus:border-[#144667]
-            focus:ring-4 focus:ring-[#144667]/10"
+                                    bg-white py-3 pl-11 pr-4 text-sm text-gray-700
+                                    shadow-sm outline-none transition-all
+                                    bg-gradient-to-b from-white to-[#f3f7fa]
+                                    placeholder:text-gray-400
+                                    hover:border-gray-300
+                                    focus:border-[#144667]
+                                    focus:ring-4 focus:ring-[#144667]/10"
                                 />
                             </div>
                         </div>
@@ -227,13 +228,13 @@ const EmployeePersonalDetails = () => {
                                     placeholder="Enter 12-digit Aadhaar number"
                                     required
                                     className="w-full rounded-xl border border-gray-200
-            bg-white py-3 pl-11 pr-4 text-sm text-gray-700
-            shadow-sm outline-none transition-all
-            placeholder:text-gray-400
-            bg-gradient-to-b from-white to-[#f3f7fa]
-            hover:border-gray-300
-            focus:border-[#144667]
-            focus:ring-4 focus:ring-[#144667]/10"
+                                    bg-white py-3 pl-11 pr-4 text-sm text-gray-700
+                                    shadow-sm outline-none transition-all
+                                    placeholder:text-gray-400
+                                    bg-gradient-to-b from-white to-[#f3f7fa]
+                                    hover:border-gray-300
+                                    focus:border-[#144667]
+                                    focus:ring-4 focus:ring-[#144667]/10"
                                 />
                             </div>
                         </div>

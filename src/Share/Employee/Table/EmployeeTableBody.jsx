@@ -1,11 +1,13 @@
 import React from 'react'
 import { employees } from '../../Constant/EmployeeData'
 import { Pencil, Trash2 } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const EmployeeTableBody = () => {
+
+   const navigate =  useNavigate()
     return (
         <>
-
 
             <tbody className="divide-y divide-gray-100 text-center">
                 {employees.map((person) => (
@@ -38,10 +40,8 @@ const EmployeeTableBody = () => {
 
                         {/* Mapping Table Fields */}
                         {[
-                            person.department,
                             person.designation,
-                            person.qualification,
-                            person.experience,
+                            person.jobtype,
                             person.joiningDate
                         ].map((value, index) => (
                             <td
@@ -74,7 +74,8 @@ const EmployeeTableBody = () => {
                                 <button
                                     title="Edit"
                                     className="cursor-pointer rounded-lg p-2 text-[#245b3e]
-                        transition-all hover:scale-110 hover:bg-green-50"
+                        transition-all hover:scale-110 hover:bg-blue-50"
+                        onClick={()=> navigate('/employeeform')}
                                 >
                                     <Pencil size={17} />
                                 </button>
@@ -93,8 +94,6 @@ const EmployeeTableBody = () => {
                     </tr>
                 ))}
             </tbody>
-
-
         </>
     )
 }

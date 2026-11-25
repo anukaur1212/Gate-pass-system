@@ -1,7 +1,9 @@
 import { Package, RotateCw, Truck, Upload } from 'lucide-react'
 import React, { useState } from 'react'
+import { getGatePass } from './GatePassApi/GetApi';
 
-const ProductDetail = () => {
+
+const ProductDetail = ({ handleChange, productForm, setProductForm ,getGatePass}) => {
 
     const [photo, setPhoto] = useState(null);
     const [type, setType] = useState("RGP");
@@ -12,9 +14,8 @@ const ProductDetail = () => {
 
     return (
         <>
-
             {/* Product details */}
-               <section className=''>
+            <section className=''>
                 <div className="mb-4 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center
                              rounded-xl bg-[#e2edf4] text-[#144667]">
@@ -41,7 +42,9 @@ const ProductDetail = () => {
 
                         <input
                             type="text"
-                            name="productName"
+                            name='product'
+                            value={productForm.product}
+                            onChange={handleChange}
                             placeholder="Enter product name"
                             required
                             className="inputClass"
@@ -56,7 +59,9 @@ const ProductDetail = () => {
 
                         <input
                             type="text"
-                            name="serialNumber"
+                            name="serial_number"
+                            value={productForm.serial_number}
+                            onChange={handleChange}
                             placeholder="Enter product serial number"
                             required
                             className="inputClass"
@@ -73,9 +78,10 @@ const ProductDetail = () => {
 
                         <input
                             type="number"
-                            name="quantity"
+                            name='quantity'
+                            value={productForm.quantity}
+                            onChange={handleChange}
                             min="1"
-                            defaultValue="1"
                             placeholder="Enter quantity"
                             required
                             className="inputClass"
@@ -90,7 +96,9 @@ const ProductDetail = () => {
 
                         <input
                             type="number"
-                            name="price"
+                            name='est_price'
+                            value={productForm.est_price}
+                            onChange={handleChange}
                             min="0"
                             step="0.01"
                             placeholder="Enter estimated price"
@@ -100,7 +108,7 @@ const ProductDetail = () => {
                     </div>
 
                     {/* Expected Return Date: RGP Only */}
-                    {type === "RGP" && (
+                    {productForm.type === "rgp" && (
                         <div className="">
                             <label className={labelClass}>
                                 Expected Return Date{" "}
@@ -109,7 +117,9 @@ const ProductDetail = () => {
 
                             <input
                                 type="date"
-                                name="expectedReturnDate"
+                                name='expt_return'
+                                value={productForm.expt_return}
+                                onChange={handleChange}
                                 required
                                 className="inputClass"
                             />
@@ -120,7 +130,7 @@ const ProductDetail = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 mt-3 items-center lg:h-34 ">
                     {/* Product Photo */}
-                  
+
                     <div className=" flex h-35 w-80 flex-col mb-3 lg:mb-5">
                         <label className={labelClass}>
                             Upload Product Photo
@@ -156,56 +166,73 @@ const ProductDetail = () => {
                     </div>
 
                     {/* gate pass type */}
-                        {/* RGP */}
-                        {/* <div className='flex border-2 w-full'> */}
-                        <label className="flex flex-1 h-[90px] -mt-7 lg:-mt-4 cursor-pointer
+                    {/* RGP */}
+                    <label className="flex flex-1 h-[90px] -mt-7 lg:-mt-4 cursor-pointer
                         items-center justify-center gap-4 border border-gray-300
                         px-3 py-3 rounded-xl lg:mr-5 transition-all
                         hover:border-[#2479a8] hover:bg-[#f3f7fa]
                         has-[:checked]:border-[#144667] has-[:checked]:bg-[#e2edf4]">
-                            <input
-                                type="radio"
-                                name="type"
-                                value="RGP"
-                                checked={type === "RGP"}
-                                onChange={(e) => setType(e.target.value)}
-                               className="h-5 w-5 shrink-0 cursor-pointer accent-[#144667]"
-                            />
-                            <span className="text-base font-medium text-gray-800"> RGP
-                            </span>
-                            <p className=" text-xs leading-5 text-gray-500">
-                                Returnable Gate Pass. The product will return to the
-                                organization.
-                            </p>
-                        </label>
+                        <input
+                            type="radio"
+                            name="type"
+                            value="rgp"
+                            checked={productForm.type === "rgp"}
+                            onChange={async (e) => {
+                                const selectedType = e.target.value;
+                                handleChange(e);
 
-                        {/* NRGP */}
-                        <label className="flex flex-1 h-[90px] -mt-7 lg:-mt-4 cursor-pointer
+                                const number = await getGatePass(selectedType);
+
+                                setProductForm(prev => ({
+                                    ...prev,
+                                    pass_number: number
+                                }));
+                            }}
+                            className="h-5 w-5 shrink-0 cursor-pointer accent-[#144667]"
+                        />
+                        <span className="text-base font-medium text-gray-800"> RGP
+                        </span>
+                        <p className=" text-xs leading-5 text-gray-500">
+                            Returnable Gate Pass. The product will return to the
+                            organization.
+                        </p>
+                    </label>
+
+                    {/* NRGP */}
+                    <label className="flex flex-1 h-[90px] -mt-7 lg:-mt-4 cursor-pointer
                         items-center justify-center gap-4 border border-gray-300
                         px-3 py-3 rounded-xl lg:mr-5 transition-all
                         hover:border-[#2479a8] hover:bg-[#f3f7fa]
                         has-[:checked]:border-[#144667] has-[:checked]:bg-[#e2edf4]">
-                            <input
-                                type="radio"
-                                name="type"
-                                value="NRGP"
-                                checked={type === "NRGP"}
-                                onChange={(e) => setType(e.target.value)}
-                                className="h-5 w-5 shrink-0 cursor-pointer accent-[#144667]"
-                            />
-                            <span className="text-base font-medium text-gray-800"> NRGP
-                            </span>
-                            <p className=" text-xs leading-5 text-gray-500">
-                                Returnable Gate Pass. The product will return to the
-                                organization.
-                            </p>
-                        </label>
-                        {/* </div> */}
+                        <input
+                            type="radio"
+                            name="type"
+                            value="nrgp"
+                            checked={productForm.type === "nrgp"}
+                            onChange={async (e) => {
+                                const selectedType = e.target.value;
+
+                                handleChange(e);
+
+                                const number = await getGatePass(selectedType);
+
+                                setProductForm(prev => ({
+                                    ...prev,
+                                    pass_number: number
+                                }));
+                            }}
+                            className="h-5 w-5 shrink-0 cursor-pointer accent-[#144667]"
+                        />
+                        <span className="text-base font-medium text-gray-800"> NRGP
+                        </span>
+                        <p className=" text-xs leading-5 text-gray-500">
+                            Returnable Gate Pass. The product will return to the
+                            organization.
+                        </p>
+                    </label>
                 </div>
 
             </section>
-
-
         </>
     )
 }

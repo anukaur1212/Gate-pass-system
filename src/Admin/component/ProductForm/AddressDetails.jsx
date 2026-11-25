@@ -1,9 +1,8 @@
 import { MapPin, NotebookDot } from 'lucide-react'
 import React, { useState } from 'react'
 
-const AddressDetails = () => {
+const AddressDetails = ({handleChange, productForm,setProductForm}) => {
 
-    const [note, setNote] = useState("");
 
 
     return (
@@ -23,17 +22,17 @@ const AddressDetails = () => {
 
                 <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-1">
                     <textarea
-                        name="note"
+                        name="additional_note"
                         rows="5"
                         maxLength="500"
-                        value={note}
-                        onChange={(e) => setNote(e.target.value)}
+                       value={productForm.additional_note}
+                       onChange={handleChange}
                         placeholder="Add additional instructions (optional)..."
                         className="inputClass resize-y"
                     />
 
                     <div className="mt-2 flex justify-end text-xs text-gray-400">
-                        {note.length}/500 characters
+                        {productForm.additional_note?.length}/500 characters
                     </div>
                 </div>
             </section>

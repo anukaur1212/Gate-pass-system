@@ -1,4 +1,4 @@
- import { LayoutDashboard, UserRoundSearch,UserRound,ClipboardList, ShieldCheck } from "lucide-react";
+ import { LayoutDashboard, UserRoundSearch,UserRound,ClipboardList, ShieldCheck, UserCheck2 } from "lucide-react";
 
   export const sidebar = [
         {
@@ -25,6 +25,11 @@
             logo:UserRound,
             name:"Employee",
             path: "/employee"
+        },
+        {
+            logo: UserCheck2,
+            name:"New Joiny",
+            path: "/newjoiny"
         }
     ]
 

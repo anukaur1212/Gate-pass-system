@@ -308,13 +308,10 @@ const FilterModal = ({ setShowFilter, showFilter }) => {
                         </div>
 
 
-
-
-
                         {/* Footer Buttons */}
                         <div className="flex gap-3">
                             <button
-                                onClick={() => {
+               k                 onClick={() => {
                                     setPassType("all");
                                     setDateFilter("all");
                                 }}

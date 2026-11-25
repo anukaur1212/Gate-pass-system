@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { products } from '../../Constant/ProductData'
 import { ClipboardList, Package, RotateCcw } from 'lucide-react'
 
-const Stats = () => {
+const Stats = ({productData,setProductData}) => {
+
+  //  console.log(productData)
+
   return (
    <>
    
@@ -21,7 +24,7 @@ const Stats = () => {
                 Total Gate Passes
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-[var(--primary)]">
-                {products.length}
+                {productData.length}
               </h2>
               <p className="mt-2 text-xs text-gray-400">
                 All registered gate passes
@@ -51,7 +54,7 @@ const Stats = () => {
                 Returnable (RGP)
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-[var(--primary)]">
-                {products.filter((p) => p.type === "RGP").length}
+                {productData.filter((p) => p.type === "rgp").length}
               </h2>
               <p className="mt-2 text-xs text-gray-400">
                 Items expected to return
@@ -84,7 +87,7 @@ const Stats = () => {
                 Non-Returnable (NRGP)
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-[var(--primary)]">
-                {products.filter((p) => p.type === "NRGP").length}
+                {productData.filter((p) => p.type === "nrgp").length}
               </h2>
               <p className="mt-2 text-xs text-gray-400">
                 Items not expected to return

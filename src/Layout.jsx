@@ -14,9 +14,7 @@ const Layout = () => {
     const handleLogout = () => {
         // Clear authentication
         localStorage.removeItem("isLoggedIn");
-
         setShowLogout(false);
-
         // Replace dashboard history with login
         navigate("/login", { replace: true });
     };

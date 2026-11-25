@@ -7,7 +7,7 @@ import { Admin } from "../../main";
 
 const Sidebar = ({ menuOpen, setMenuOpen,setShowLogout }) => {
 
- const {AdminName,png,setAdminName} = useContext(Admin);
+ const {AdminName,png,firstName} = useContext(Admin);
 
   return (
     <>
@@ -55,7 +55,7 @@ const Sidebar = ({ menuOpen, setMenuOpen,setShowLogout }) => {
 
             <div className="sidebar-text">
               <p>Administrator</p>
-              <small>{AdminName}</small>
+              <small>{firstName}</small>
             </div>
           </div>
 

@@ -6,7 +6,8 @@ import { Admin } from "../../main";
 
 const Header = ({ menuOpen, setMenuOpen }) => {
 
-const {AdminName,png} = useContext(Admin);
+const {AdminName,png,firstName} = useContext(Admin);
+
 
   return (
     <div className="header">
@@ -16,7 +17,7 @@ const {AdminName,png} = useContext(Admin);
         <div className="welcome">
 
           <h1>
-            Welcome to Dashboard
+            Welcome to Dashboard <span className="text-[var(--primary-red)] uppercase"> {firstName}</span> 
             <span>👋</span>
           </h1>
           <p>
@@ -92,7 +93,7 @@ const {AdminName,png} = useContext(Admin);
 
             <div>
               <p className="user-heading">
-              {AdminName}
+              {firstName}
               </p>
             </div>
           </div>

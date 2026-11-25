@@ -1,5 +1,7 @@
 
 import { employees } from '../../Constant/EmployeeData'
+import Filter from '../../Report/Components/Filter'
+import EmployeeFilter from './EmployeeFilter'
 import EmployeeTableBody from './EmployeeTableBody'
 import EmployeeTableHeading from './EmployeeTableHeading'
 
@@ -16,6 +18,7 @@ const EmployeeTable = () => {
                  border-[#e0ebe0] bg-white shadow-sm">
 
                     {/* Search and Actions */}
+                   <EmployeeFilter/>
                    
 
                     {/* Responsive Table */}

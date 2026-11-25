@@ -44,6 +44,7 @@
   --success: #15803D;
   --warning: #D97706;
   --danger: #DC2626;
+  --primary-red:#EB5141;
 }
 
 @theme inline{

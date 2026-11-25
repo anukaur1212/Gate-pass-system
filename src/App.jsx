@@ -10,7 +10,12 @@ import Layout from './Layout';
 import Employee from './Admin/pages/Employee';
 import EmployeeForm from './Share/Employee/Form/EmployeeForm';
 import Login from './Admin/pages/Login';
-
+import NewJoiny from './Admin/pages/NewJoiny';
+import DeleteVisitor from './Share/Report/Modal/DeleteVisitor';
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CloudImg from '../CloudImg';
+import CloudGetImg from './CloudGetImg';
 
 
 const App = () => {
@@ -18,9 +23,7 @@ const App = () => {
     <>
 
       <Routes>
-
         <Route path='/login' element={<Login />} />
-
         <Route path="/" element={<Layout />}>
           <Route index element={<DashboardPage />} />
           <Route path="/productform" element={<ProductForm />} />
@@ -30,14 +33,20 @@ const App = () => {
           <Route path='/visitorform' element={<VisitorForm />} />
           <Route path='/employee' element={<Employee />} />
           <Route path='/employeeform' element={<EmployeeForm />} />
+          <Route path='/newjoiny' element={<NewJoiny />} />
+          <Route path='/deletevisitor' element={<DeleteVisitor/>}/>
         </Route>
-
       </Routes>
 
+      {/* <CloudImg/> */}
+      {/* <Routes>
+        <Route path="/" element={<CloudImg />} />
+        <Route path="/preview" element={<CloudGetImg />} />
+      </Routes> */}
+
+      <ToastContainer />
     </>
   )
 }
 
 export default App
-
-// text-var(--blur-color)

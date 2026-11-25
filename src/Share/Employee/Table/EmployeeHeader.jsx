@@ -22,13 +22,13 @@ const EmployeeHeader = () => {
           </p>
         </div>
 
-        <button onClick={() => btnHandle()}
+        {/* <button onClick={() => btnHandle()}
           className="flex items-center justify-center gap-2 rounded-xl bg-[var(--primary)] 
                      px-5 py-3 text-sm font-semibold text-white shadow-sm transition
                       hover:bg-[var(--text-muted)] cursor-pointer">
           <Plus size={18} />
           Add Employee
-        </button>
+        </button> */}
 
       </div>
 

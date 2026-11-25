@@ -10,7 +10,7 @@ const EmployeeTableHeading = () => {
 
           {TableHeader.map((value) => {
             return (
-              <th key={value.id} className="w-25 px-3 py-3">
+              <th key={value.id} className="w-49 px-3 py-3">
                 {value.label}
               </th>
             )

@@ -11,7 +11,7 @@ const Employee = () => {
 
         <EmployeeHeader/>
         <EmployeeTableStats/>
-       <EmployeeTable/>
+         <EmployeeTable/>
 
    </div>
    </>

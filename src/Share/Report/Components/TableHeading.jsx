@@ -12,9 +12,9 @@ const TableHeading = () => {
                     <th className="w-52 px-3 py-3">Product Details</th>
                     <th className="w-16 px-3 py-3">Qty</th>
                     <th className="w-36 px-3 py-3">Estimated Price</th>
-                    <th className="w-44 px-3 py-3">Organization</th>
-                    <th className="w-40 px-3 py-3">Person Name</th>
-                    <th className="w-52 px-3 py-3">Contact</th>
+                    <th className="w-44 py-3">Organization</th>
+                    <th className="w-50 px-3 py-3">Person Name</th>
+                    <th className="w-50 px-4 py-3">Contact</th>
                     <th className="w-40 px-3 py-3">Expected Return</th>
                 </tr>
             </thead>

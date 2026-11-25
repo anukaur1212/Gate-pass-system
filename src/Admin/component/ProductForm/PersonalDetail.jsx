@@ -1,7 +1,7 @@
 import { UserRound } from 'lucide-react'
 import React from 'react'
 
-const PersonalDetail = () => {
+const PersonalDetail = ({handleChange, productForm, setProductForm}) => {
 
       const labelClass =
         "ms-2 mb-2 flex items-center gap-2 text-sm font-semibold text-gray-700";
@@ -38,6 +38,8 @@ const PersonalDetail = () => {
                         <input
                             type="text"
                             name="organization"
+                            value={productForm.organization}
+                            onChange={handleChange}
                             placeholder="Enter organization name"
                             required
                             className="inputClass"
@@ -52,7 +54,9 @@ const PersonalDetail = () => {
 
                         <input
                             type="text"
-                            name="fullName"
+                            name="person_name"
+                            value={productForm.person_name}
+                            onChange={handleChange}
                             placeholder="Enter full name"
                             required
                             className="inputClass"
@@ -68,6 +72,8 @@ const PersonalDetail = () => {
                         <input
                             type="email"
                             name="email"
+                            value={productForm.email}
+                            onChange={handleChange}
                             placeholder="example@company.com"
                             required
                             className="inputClass"
@@ -82,7 +88,9 @@ const PersonalDetail = () => {
 
                         <input
                             type="tel"
-                            name="phone"
+                            name="contact"
+                            value={productForm.contact}
+                            onChange={handleChange}
                             placeholder="Enter phone number"
                             required
                             className="inputClass"
@@ -100,6 +108,8 @@ const PersonalDetail = () => {
 
                         <textarea
                             name="address"
+                            value={productForm.address}
+                            onChange={handleChange}
                             rows="5"
                             placeholder="Enter complete address..."
                             required

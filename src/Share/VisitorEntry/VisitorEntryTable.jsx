@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { visitors } from '../Constant/VisitorData'
 import Filter from '../Report/Components/Filter'
 import VisitorTableHeading from './VisitorTableHeading'
@@ -6,6 +6,11 @@ import VisitorEntryTableBody from './VisitorEntryTableBody'
 import VisitorFilter from './VisitorFilter'
 
 const VisitorEntryTable = () => {
+
+    const [visitor, setVisitor] = useState([]);
+
+    // console.log(visitor);
+
   return (
    <>
    
@@ -25,8 +30,8 @@ const VisitorEntryTable = () => {
                     <div className="overflow-x-auto">
                         <table className="w-full min-w-[1200px] border-collapse text-left">
 
-                           <VisitorTableHeading/>
-                           <VisitorEntryTableBody/>
+                           <VisitorTableHeading />
+                           <VisitorEntryTableBody visitor={visitor} setVisitor={setVisitor}/>
 
                         </table>
                     </div>
@@ -35,7 +40,7 @@ const VisitorEntryTable = () => {
                     {/* Footer */}
                     <div className="flex flex-col justify-between gap-2 border-t border-gray-100
                     px-5 py-4 text-sm text-gray-500 sm:flex-row sm:items-center">
-                        <p>Showing {visitors.length} visitors records</p>
+                        <p>Showing {visitor.length} visitors records</p>
 
                     </div>
                 </div>

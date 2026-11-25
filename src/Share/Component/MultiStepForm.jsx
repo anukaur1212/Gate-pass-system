@@ -10,6 +10,8 @@ import Document from '../Employee/Form/Document';
 
 const MultiStepForm = () => {
 
+
+
   const [currentStep, setCurrentStep] = useState(0)
   const [jobType, setJobType] = useState("");
   const [salary, setSalary] = useState("");
