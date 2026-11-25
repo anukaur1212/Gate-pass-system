@@ -1,0 +1,24 @@
+$kind: http-request
+name: ""
+url: http://localhost:5000/visit/postvisitor
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Prabh Singh\",\r
+
+    \  \"phone\":\"736284738\",\r
+
+    \  \"visit_purpose\":\"for interview\",\r
+
+    \  \"in_time\":\"10:00:00\",\r
+
+    \  \"out_time\":\"13:00:00\",\r
+
+    \  \"meeting_to\":\"Team leader\",\r
+
+    \  \"is_deleted\":\"1\"\r
+
+    }"
+order: 1000
